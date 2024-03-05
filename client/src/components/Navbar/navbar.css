@@ -1,0 +1,118 @@
+body{
+    margin: 0;
+}
+.navbar {
+    background-color: #131212;
+    margin: 0;
+    display: flex;
+    gap: 2rem;
+    z-index: 10;
+}
+.left{
+    width: 65%;
+    display: flex;
+    justify-content: space-between;
+}
+.LSbtn{
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 1rem;
+}
+
+.LSbtn a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.marvellogo img {
+    margin-top: 5px;
+    width: 10rem;
+    height: 4rem;
+    background-size: cover;
+}
+.vertical {
+    border-left: 2px solid white;
+    height: 100%;
+  }
+
+.right{
+    width: 45%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+    margin-right: 2rem;
+}
+
+.navbar input[type="text"] {
+    box-sizing: border-box;
+    width: 100%;
+    height: 70%;
+    outline: none;
+    border: 1px solid #212121;
+    border-radius: 22px;
+    background-color: #1c1c1c;
+    color: #fff;
+    padding: 0 40px;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+.searchBar{
+    position: relative;
+
+}
+.searchBar img {
+    height: 25px;
+    left: 10px;
+    top: 46%;
+    transform: translateY(-50%);
+    position: absolute;
+    z-index: 1;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.cart img{
+    width: 30px;
+    height: 30px;
+    margin-top: 1.2rem;
+}
+
+@media (min-width: 481px) and (max-width: 1200px) {
+    .navbar {
+        gap: 1rem; 
+    }
+
+    .LSbtn {
+        gap: 0.25rem; 
+        margin: 1rem 0.25rem; 
+    }
+
+    .marvellogo img {
+        width: 7rem; 
+        height: 2.5rem; 
+    }
+
+    .right {
+        gap: 0.5rem; 
+        margin-right: 0.5rem; 
+    }
+
+    .navbar input[type="text"] {
+        width: 100%;
+        height: 70%; 
+        padding: 0 15px; 
+    }
+
+    .searchBar img {
+        height: 18px; 
+        left: 6px;
+        margin-top: 2px; 
+        margin-left: 85%;
+    }
+
+    .cart img {
+        width: 20px; 
+        height: 20px; 
+        margin-top: 1rem; 
+    }
+}

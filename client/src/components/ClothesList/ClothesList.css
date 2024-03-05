@@ -1,0 +1,16 @@
+.cards {
+    display: flex; 
+    flex-wrap: wrap; 
+}
+
+.cloth-preview img {
+    width: 16.716rem;
+    height: 22.288rem;
+    background-size: cover;
+}
+.cloth-preview p{
+    color: black;
+}
+br{
+    color: black;
+}

@@ -1,0 +1,150 @@
+.home {
+    background-color: #131212;
+    color: white;
+    height: 100vh;
+}
+
+.home a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.coverImage img {
+    width: 100%;
+    height: 100%;
+}
+
+.categoryMenu {
+    display: flex;
+    justify-content: space-evenly;
+    height: 3rem;
+}
+
+.categoryMenu>div {
+    position: relative;
+}
+
+.clothesDropdown,
+.accessoriesDropdown,
+.comicsDropdown {
+    display: none;
+    position: absolute;
+    top: calc(100%);
+    left: 0;
+    background-color: #131212;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1;
+    width: 15rem;
+    height: 10rem;
+    cursor: pointer;
+    border: 1px solid #fff;
+    line-height: 2rem;
+}
+
+.comicsDropdown {
+    width: 15rem;
+    height: 16rem;
+}
+
+.accessoriesDropdown {
+    height: 14rem;
+}
+
+.clothes:hover .clothesDropdown,
+.accessories:hover .accessoriesDropdown,
+.comics:hover .comicsDropdown {
+    display: block;
+}
+
+.clothes,
+.accessories,
+.comics,
+.viewall {
+    cursor: pointer;
+}
+
+
+h3 {
+    color: #fff;
+    font-size: 14px;
+    height: 45px;
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+    font-weight: 700;
+    font-family: opensans-r, open sans, "sans-serif";
+}
+
+
+.storeCategoryMenu {
+    display: flex;
+    justify-content: space-between;
+}
+
+.rightTag {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.leftTag {
+    cursor: default;
+}
+
+.leftTag>h1 {
+    font-size: 20px;
+    margin: 6px 0 9px;
+    padding-top: 11px;
+    color: #363636;
+    font-family: opensans-h, open sans, sans-serif;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.storeDisplay{
+    background-color: #fff;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.storeMenu {
+    background-color: #fff;
+    width: 90%;
+    margin: 0 auto;
+
+}
+
+.storeCategoryMenu {
+    margin: 1rem 1rem;
+}
+
+.rightTag {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.men,
+.women,
+.filter {
+    cursor: pointer;
+    border-radius: 10px;
+    color: #ec1a30;
+    border: 1px solid #ec1a30;
+    padding: 5px 1rem;
+    margin: 0 5px;
+    width: auto;
+    text-align: center;
+    font-family: opensans-eb, open sans, "sans-serif";
+    text-transform: uppercase;
+    align-self: center;
+}
+
+.filter {
+    background-color: #ec1a30;
+    color: #fff;
+}
+

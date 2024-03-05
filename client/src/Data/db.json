@@ -1,0 +1,45 @@
+{
+    "Clothes": [
+        {
+            "id": 1,
+            "img": "/images/Clothes/deadpool-wolverine-logo-t-shirt-india-600x800.webp",
+            "price": "600 499"
+        },
+        {
+            "id": 2,
+            "img": "/images/Clothes/iron-man-arc-reactor-drop-cut-t-shirt-india-525x700.webp",
+            "price": "600 499"
+        },
+        {
+            "id": 3,
+            "img": "/images/Clothes/marvel-arc-reactor-suit-drop-cut-t-shirt-india-600x800.webp",
+            "price": "600 499"
+        },
+        {
+            "id": 4,
+            "img": "/images/Clothes/marvel-avengers-character-logos-hoodie-india-600x800.webp",
+            "price": "600 499"
+        },
+        {
+            "id": 5,
+            "img": "/images/Clothes/marvel-deadpool-do-i-look-like-i-care-t-shirt-india-600x800.webp",
+            "price": "600 499"
+        },
+        {
+            "id": 6,
+            "img": "/images/Clothes/marvel-deadpool-i-am-a-unicorn-t-shirt-india-600x800.jpg",
+            "price": "600 499"
+        },
+        {
+            "id": 7,
+            "img": "/images/Clothes/marvel-iron-man-arc-reactor-light-up-full-sleeve-t-shirt-india-600x800.webp",
+            "price": "600 499"
+        },
+        {
+            "id": 8,
+            "img": "/images/Clothes/marvel-wolverine-violent-mutant-oversized-t-shirt-india-back-600x800.webp",
+            "price": "600 499"
+        }
+   
+    ]
+}
