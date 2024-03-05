@@ -1,7 +1,7 @@
 .home {
     background-color: #131212;
     color: white;
-    height: 100vh;
+    height: 100%; 
 }
 
 .home a {

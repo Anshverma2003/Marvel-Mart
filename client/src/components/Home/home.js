@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import './home.css'
 
 const Home = () => {
-    const { data, isPending, error } = useFetch('http://localhost:8080/Clothes');
+    const { data, isPending, error } = useFetch('http://localhost:8000/Clothes');
 
     return (
         <div className="home">

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useFetch = (url) => {
+const useFetch = (URL) => {
 
     const [isPending, setIsPending] = useState(true);
     const [data, setData] = useState([]);
@@ -9,7 +9,7 @@ const useFetch = (url) => {
     useEffect(() => {
         const abortcont = new AbortController();
 
-        fetch(url, { signal: abortcont.signal })
+        fetch(URL, { signal: abortcont.signal })
 
             .then(res => {
                 if (!res.ok) {
@@ -32,13 +32,12 @@ const useFetch = (url) => {
                     setError(err.message);
                     setIsPending(false);
                 }
-
             })
         return () => abortcont.abort();
 
-    }, [url]);
+    }, [URL]);
 
-    return {data, isPending, error};
+    return { data, isPending, error };
 }
 
 export default useFetch;

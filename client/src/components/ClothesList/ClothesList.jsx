@@ -4,18 +4,20 @@ import './ClothesList.css'
 const ClothesList = ({ data }) => {
     return (
         <div className="cards">
-        
+
             {data.map(cloth => (
 
                 <div className="cloth-preview" key={cloth.id}>
 
-                    <Link to={`/data/${cloth.id}`}>
+                    <Link to={`/Clothes/${cloth.id}`}>
 
                         <img src={cloth.img} alt="Image" />
-                        <br />
-                        
-                        <p>{cloth.price}</p>
-                        <p>{cloth.img.slice(16,35)}...</p>
+                        <p className="clothName">{cloth.img.slice(16, 38)}....</p>
+
+                        <span className="PriceTag">
+                            <p>Rs.{cloth.price} <del>{cloth.prevPrice}</del> </p>
+                            <p className="percent">{cloth.offPercent}</p>
+                        </span>
 
                     </Link>
 

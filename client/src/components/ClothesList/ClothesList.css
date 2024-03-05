@@ -1,6 +1,8 @@
 .cards {
     display: flex; 
     flex-wrap: wrap; 
+    justify-content: center;
+    gap: 1rem;
 }
 
 .cloth-preview img {
@@ -10,7 +12,20 @@
 }
 .cloth-preview p{
     color: black;
+    display: flex;
+    gap: 0.5rem;
+    font-family: "Poppins";
+    text-transform: uppercase;
+
 }
-br{
-    color: black;
+.clothName{
+    text-decoration: 0.5px rgb(137, 136, 136) underline;
+    line-height: 0;
+}
+.PriceTag{
+    display: flex;
+    justify-content: space-between;
+}
+.PriceTag > .percent{
+    color: red;
 }

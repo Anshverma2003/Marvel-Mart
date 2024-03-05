@@ -11,7 +11,7 @@ const Navbar = () => {
             <div className="left">
                 <div className="LSbtn">
                     <Link to="login">LOG IN</Link>
-                    <div class="vertical"></div>
+                    <div className="vertical"></div>
                     <Link to="signup"> JOIN</Link>
                 </div>
                 <div className="marvellogo">

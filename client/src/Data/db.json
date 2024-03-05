@@ -2,44 +2,227 @@
     "Clothes": [
         {
             "id": 1,
-            "img": "/images/Clothes/deadpool-wolverine-logo-t-shirt-india-600x800.webp",
-            "price": "600 499"
+            "img": "/images/Clothes/deadpool-chibi-darts-t-shirt-india-600x800.webp",
+            "prevPrice": "600",
+            "price": "499",
+            "offPercent": "29% Off",
+            "name": "deadpool-chibi-darts-t-shirt"
         },
         {
             "id": 2,
-            "img": "/images/Clothes/iron-man-arc-reactor-drop-cut-t-shirt-india-525x700.webp",
-            "price": "600 499"
+            "img": "/images/Clothes/deadpool-wolverine-logo-t-shirt-india-600x800.webp",
+            "prevPrice": "600",
+            "price": "499",
+            "offPercent": "29% Off",
+            "name": "deadpool-wolverine-logo-t-shirt"
         },
         {
             "id": 3,
-            "img": "/images/Clothes/marvel-arc-reactor-suit-drop-cut-t-shirt-india-600x800.webp",
-            "price": "600 499"
+            "img": "/images/Clothes/black-panther-suit-drop-cut-t-shirt-india-525x700.webp",
+            "prevPrice": "600",
+            "price": "499",
+            "offPercent": "29% Off",
+            "name": "black-panther-suit-drop-cut-t-shirt"
         },
         {
             "id": 4,
-            "img": "/images/Clothes/marvel-avengers-character-logos-hoodie-india-600x800.webp",
-            "price": "600 499"
+            "img": "/images/Clothes/the-amazing-spider-man-logo-full-sleeve-t-shirt-india-600x800.webp",
+            "prevPrice": "600",
+            "price": "499",
+            "offPercent": "29% Off",
+            "name": "the-amazing-spider-man-logo-full-sleeve-t-shirt"
         },
         {
             "id": 5,
-            "img": "/images/Clothes/marvel-deadpool-do-i-look-like-i-care-t-shirt-india-600x800.webp",
-            "price": "600 499"
+            "img": "/images/Clothes/spider-man-super-suit-t-shirt-india-600x800.webp",
+            "prevPrice": "600",
+            "price": "499",
+            "offPercent": "29% Off",
+            "name": "spider-man-super-suit-t-shirt"
         },
         {
             "id": 6,
-            "img": "/images/Clothes/marvel-deadpool-i-am-a-unicorn-t-shirt-india-600x800.jpg",
-            "price": "600 499"
+            "img": "/images/Clothes/iron-man-arc-reactor-drop-cut-t-shirt-india-525x700.webp",
+            "prevPrice": "600",
+            "price": "499",
+            "offPercent": "29% Off",
+            "name": "iron-man-arc-reactor-drop-cut-t-shirt"
         },
         {
             "id": 7,
-            "img": "/images/Clothes/marvel-iron-man-arc-reactor-light-up-full-sleeve-t-shirt-india-600x800.webp",
-            "price": "600 499"
+            "img": "/images/Clothes/iron-man-arc-reactor-glow-in-the-dark-t-shirt-glow-525x700.webp",
+            "prevPrice": "600",
+            "price": "499",
+            "offPercent": "29% Off",
+            "name": "iron-man-arc-reactor-glow-in-the-dark-t-shirt"
         },
         {
             "id": 8,
+            "img": "/images/Clothes/marvel-arc-reactor-suit-drop-cut-t-shirt-india-600x800.webp",
+            "prevPrice": "600",
+            "price": "499",
+            "offPercent": "29% Off",
+            "name": "marvel-arc-reactor-suit-drop-cut-t-shirt"
+        },
+        {
+            "id": 9,
+            "img": "/images/Clothes/miles-morales-my-spider-sense-is-tingling-t-shirt-india-glow-525x700.webp",
+            "prevPrice": "600",
+            "price": "499",
+            "offPercent": "29% Off",
+            "name": "miles-morales-my-spider-sense-is-tingling-t-shirt"
+        },
+        {
+            "id": 10,
+            "img": "/images/Clothes/marvel-avengers-character-logos-hoodie-india-600x800.webp",
+            "prevPrice": "600",
+            "price": "499",
+            "offPercent": "29% Off",
+            "name": "marvel-avengers-character-logos-hoodie"
+        },
+        {
+            "id": 11,
+            "img": "/images/Clothes/marvel-deadpool-do-i-look-like-i-care-t-shirt-india-600x800.webp",
+            "prevPrice": "600",
+            "price": "499",
+            "offPercent": "29% Off",
+            "name": "marvel-deadpool-do-i-look-like-i-care-t-shirt"
+        },
+        {
+            "id": 12,
+            "img": "/images/Clothes/marvel-deadpool-i-am-a-unicorn-t-shirt-india-600x800.jpg",
+            "prevPrice": "600",
+            "price": "499",
+            "offPercent": "29% Off",
+            "name": "marvel-deadpool-i-am-a-unicorn-t-shirt"
+        },
+        {
+            "id": 13,
+            "img": "/images/Clothes/marvel-frank-castle-the-punisher-hoodie-india-back-600x800.webp",
+            "prevPrice": "600",
+            "price": "499",
+            "offPercent": "29% Off",
+            "name": "marvel-frank-castle-the-punisher-hoodie"
+        },
+        {
+            "id": 14,
+            "img": "/images/Clothes/marvel-iron-man-arc-reactor-light-up-full-sleeve-t-shirt-india-600x800.webp",
+            "prevPrice": "600",
+            "price": "499",
+            "offPercent": "29% Off",
+            "name": "marvel-iron-man-arc-reactor-light-up-full-sleeve-t-shirt"
+        },
+        {
+            "id": 15,
+            "img": "/images/Clothes/marvel-iron-man-stark-industries-blueprint-hoodie-india-600x800.webp",
+            "prevPrice": "600",
+            "price": "499",
+            "offPercent": "29% Off",
+            "name": "marvel-iron-man-stark-industries-blueprint-hoodie"
+        },
+        {
+            "id": 16,
+            "img": "/images/Clothes/marvel-loki-master-of-mischief-hoodie-india-back-600x800.webp",
+            "prevPrice": "600",
+            "price": "499",
+            "offPercent": "29% Off",
+            "name": "marvel-loki-master-of-mischief-hoodie"
+        },
+        {
+            "id": 17,
+            "img": "/images/Clothes/the-sorcerer-supreme-full-sleeve-t-shirt-india-glow-525x700.webp",
+            "prevPrice": "600",
+            "price": "499",
+            "offPercent": "29% Off",
+            "name": "the-sorcerer-supreme-full-sleeve-t-shirt"
+        },
+        {
+            "id": 18,
+            "img": "/images/Clothes/the-amazing-spider-man-logo-full-sleeve-t-shirt-india-600x800.webp",
+            "prevPrice": "600",
+            "price": "499",
+            "offPercent": "29% Off",
+            "name": "the-amazing-spider-man-logo-full-sleeve-t-shirt"
+        },
+        {
+            "id": 19,
+            "img": "/images/Clothes/spider-man-venom-split-t-shirt-india-600x800.webp",
+            "prevPrice": "600",
+            "price": "499",
+            "offPercent": "29% Off",
+            "name": "spider-man-venom-split-t-shirt"
+        },
+        {
+            "id": 20,
+            "img": "/images/Clothes/spider-man-super-suit-t-shirt-india-600x800.webp",
+            "prevPrice": "600",
+            "price": "499",
+            "offPercent": "29% Off",
+            "name": "spider-man-super-suit-t-shirt"
+        },
+        {
+            "id": 21,
+            "img": "/images/Clothes/spider-gwen-t-shirt-india-600x800.webp",
+            "prevPrice": "600",
+            "price": "499",
+            "offPercent": "29% Off",
+            "name": "spider-gwen-t-shirt"
+        },
+        {
+            "id": 22,
+            "img": "/images/Clothes/peter-1-2-and-3-tank-top-india-525x700.webp",
+            "prevPrice": "600",
+            "price": "499",
+            "offPercent": "29% Off",
+            "name": "peter-1-2-and-3-tank-top"
+        },
+        {
+            "id": 23,
+            "img": "/images/Clothes/miles-morales-my-spider-sense-is-tingling-t-shirt-india-glow-525x700.webp",
+            "prevPrice": "600",
+            "price": "499",
+            "offPercent": "29% Off",
+            "name": "miles-morales-my-spider-sense-is-tingling-t-shirt"
+        },
+        {
+            "id": 24,
             "img": "/images/Clothes/marvel-wolverine-violent-mutant-oversized-t-shirt-india-back-600x800.webp",
-            "price": "600 499"
+            "prevPrice": "600",
+            "price": "499",
+            "offPercent": "29% Off",
+            "name": "marvel-wolverine-violent-mutant-oversized-t-shirt"
+        },
+        {
+            "id": 25,
+            "img": "/images/Clothes/marvel-venom-and-carnage-t-shirt-india-600x800.webp",
+            "prevPrice": "600",
+            "price": "499",
+            "offPercent": "29% Off",
+            "name": "marvel-venom-and-carnage-t-shirt"
+        },
+        {
+            "id": 26,
+            "img": "/images/Clothes/marvel-thor-god-bod-to-dad-bod-t-shirt-india-600x800.webp",
+            "prevPrice": "600",
+            "price": "499",
+            "offPercent": "29% Off",
+            "name": "marvel-thor-god-bod-to-dad-bod-t-shirt"
+        },
+        {
+            "id": 27,
+            "img": "/images/Clothes/marvel-summon-the-suit-t-shirt-india-600x800.webp",
+            "prevPrice": "600",
+            "price": "499",
+            "offPercent": "29% Off",
+            "name": "marvel-summon-the-suit-t-shirt"
+        },
+        {
+            "id": 28,
+            "img": "/images/Clothes/marvel-moon-knight-x-mr-knight-t-shirt-india-600x800.webp",
+            "prevPrice": "600",
+            "price": "499",
+            "offPercent": "29% Off",
+            "name": "marvel-moon-knight-x-mr-knight-t-shirt"
         }
-   
     ]
 }
