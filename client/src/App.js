@@ -3,30 +3,38 @@ import Navbar from './components/Navbar/navbar';
 import Home from "./components/Home/home";
 import PageNotFound from "./components/pageNotFound/pageNotFound";
 import CardDetails from "./components/CardDetails/cardDetails";
+import Cart from "./components/Cart/cart"
+import CartProvider from "./Context/context";
 
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Navbar />
+    <CartProvider>
+      <Router>
+        <div className="App">
+          <Navbar />
 
-        <Switch>
+          <Switch>
 
-          <Route exact path="/">
-            <Home />
-          </Route>
+            <Route exact path="/">
+              <Home />
+            </Route>
 
-          <Route exact path="/Clothes/:id">
-            <CardDetails />
-          </Route>
+            <Route exact path="/Clothes/:id">
+              <CardDetails />
+            </Route>
 
-          <Route component={PageNotFound} />
+            <Route exact path='/Cart/:id'>
+              <Cart />
+            </Route>
 
-        </Switch>
+            <Route component={PageNotFound} />
 
-      </div>
-    </Router>
+          </Switch>
+
+        </div>
+      </Router>
+    </CartProvider>
 
   );
 }

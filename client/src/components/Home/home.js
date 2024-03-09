@@ -1,7 +1,6 @@
 import pic1 from '../../Assets/homeCoverImage.png'
 import useFetch from '../../Hooks/useFetch';
 import ClothesList from '../ClothesList/ClothesList.jsx';
-import { useEffect } from 'react';
 import './home.css'
 
 const Home = () => {

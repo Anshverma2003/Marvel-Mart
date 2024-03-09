@@ -132,4 +132,11 @@ span{
     color: white;
     background-color: red;
     border-radius: 12px;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+.cardDetails button:hover{
+    background-color: #fff;
+    color: red;
+    border: 1px solid red;
 }

@@ -1,7 +1,8 @@
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { cartContext } from "../../Context/context";
 import useFetch from "../../Hooks/useFetch";
 import "./cardDetails.css";
 import pic1 from '../../Assets/return-eligibility-valid.webp'
+import { useContext } from "react";
 
 function CardDetails() {
 
@@ -10,6 +11,13 @@ function CardDetails() {
     const id = match ? match[1] : null;
 
     const { data, isPending, error } = useFetch('http://localhost:8000/Clothes/' + id);
+
+    const { addToCart } = useContext(cartContext);
+
+    function handelAddToCart() {
+        addToCart(data);
+    }
+
 
     return (
         <div className="cardDetails">
@@ -41,11 +49,10 @@ function CardDetails() {
                             <div className="selectSize">
                                 <span>CLICK TO SELECT SIZE:</span>
                                 <select name="Size" id="size">
-                                    <option value=""></option>
-                                    <option value="XS">XS</option>
                                     <option value="S">S</option>
                                     <option value="M">M</option>
                                     <option value="L">L</option>
+                                    <option value="XS">XS</option>
                                     <option value="XL">XL</option>
                                     <option value="XXL">XXL</option>
                                 </select>
@@ -64,7 +71,8 @@ function CardDetails() {
                                 </select>
                             </div>
 
-                            <button>ADD TO CART</button>
+                            <button onClick={handelAddToCart} >ADD TO CART</button>
+
 
                         </div>
                     </div>

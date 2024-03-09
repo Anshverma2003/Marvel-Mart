@@ -28,7 +28,7 @@ const Navbar = () => {
                         <input type="text" id="search" placeholder="Search" />
                     </label>
                 </div>
-                <div className="cart">
+                <div className="cartBtn">
                     <Link to="/cart">
                         <img src={pic3} alt="cart" />
                     </Link>
