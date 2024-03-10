@@ -5,6 +5,7 @@ import PageNotFound from "./components/pageNotFound/pageNotFound";
 import CardDetails from "./components/CardDetails/cardDetails";
 import Cart from "./components/Cart/cart"
 import CartProvider from "./Context/context";
+import Buy from "./components/Buy/buy";
 
 
 function App() {
@@ -24,8 +25,12 @@ function App() {
               <CardDetails />
             </Route>
 
-            <Route exact path='/Cart/:id'>
+            <Route exact path='/Cart'>
               <Cart />
+            </Route>
+
+            <Route exact path='/Buy'>
+              <Buy />
             </Route>
 
             <Route component={PageNotFound} />

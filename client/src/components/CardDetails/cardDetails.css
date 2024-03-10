@@ -27,7 +27,7 @@
 .rightDetail {
     width: 44rem;
     height: 40rem;
-    /* background-color: red; */
+
     margin-bottom: 2rem;
     box-sizing: border-box;
     padding: 1rem;
@@ -56,15 +56,17 @@
     color: #646464;
     line-height: 150%;
 }
-.artwork-info{
+
+.artwork-info {
     color: rgb(100, 96, 96);
 }
-.semi-bold{
+
+.semi-bold {
     font-weight: bolder;
     color: black;
 }
 
-.return{
+.return {
     font-size: 13px;
     margin-top: 10px;
     background-repeat: no-repeat;
@@ -75,57 +77,67 @@
     gap: 1rem;
     color: #646496;
 }
-.return img{
+
+.return img {
     width: 30px;
     height: 30px;
     margin-top: 10px;
 }
 
-.del{
+.del {
     color: #646464;
-    font-size:large;
+    font-size: large;
     margin: auto 0;
 }
-span{
+
+span {
     color: red;
     text-transform: lowercase;
 }
-.details h2{
+
+.details h2 {
     display: flex;
     gap: 1rem;
 }
-.selectSize{
+
+.selectSize {
     display: flex;
     gap: 1rem;
 }
-.selectSize span{
+
+.selectSize span {
     color: #363636;
     margin: 0;
 }
-.rightDetail{
+
+.rightDetail {
     text-align: left;
 }
 
-.selectSize select{
+.selectSize select {
     border-radius: 12px;
     padding: 8px;
-    
+
 }
-.quantity{
+
+.quantity {
     margin: 1rem 0;
     display: flex;
     gap: 1rem;
-    
+
 }
-.quantity span{
+
+.quantity span {
     color: #363636;
     text-transform: uppercase;
 }
-.quantity select{
+
+.quantity select {
     width: 5rem;
     border-radius: 12px;
 }
-.cardDetails button{
+
+.cardDetails button {
     width: 80%;
     height: 2.5rem;
     border: none;
@@ -135,8 +147,74 @@ span{
     cursor: pointer;
     transition: all .5s ease;
 }
-.cardDetails button:hover{
+
+.cardDetails button:hover {
     background-color: #fff;
     color: red;
     border: 1px solid red;
+}
+
+
+.modal {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    max-width: 80%;
+    text-align: center;
+}
+
+.modal img {
+    width: 9.375rem;
+    height: 13.75rem;
+}
+
+.modalBtn {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalBtn a {
+    width: 100%;
+}
+
+.viewBtn,
+.shopBtn {
+    width: 100%;
+}
+
+.closeBtn {
+    width: 2rem;
+    margin-left: 95%;
+
+}
+
+.closeBtn button {
+    background-color: white;
+    color: black;
+    font-weight: bolder;
+}
+
+.closeBtn button:hover {
+    background-color: white;
+    color: black;
+    font-weight: bolder;
+    border: none;
+
 }

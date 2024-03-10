@@ -1,0 +1,108 @@
+.emptyCart {
+    position: relative;
+  }
+  
+  .emptyCartImage img {
+    position: relative;
+    width: 100%; 
+    height: auto; 
+  }
+  
+  .emptyCart h1{
+    position: absolute;
+    top: 25px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    color: white; 
+  }
+  .emptyCart button{
+    position: absolute;
+    top: 12rem;
+    left: 30%;
+    width: 40%;
+    height: 3rem;
+    background-color: #DAC2FF;
+    border: none;
+    color: #5B0001;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+
+.cartDetails{
+    display: flex;
+    justify-content: center;
+}
+.cart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.cart h2{
+    color: black;
+    text-transform: uppercase;
+}
+.cartItems{
+    border: 1px solid red;
+    width: 98%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #E6E6FA;
+
+
+}
+.cartLeft{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    gap: 2rem;
+}
+
+.cartLeft img{
+    width: 30%;
+    height: auto;
+}
+.cartRight button{
+
+    width: 160%;
+    height: 2rem;
+    background-color: red;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 8px;   
+}
+.cartRight button:hover{
+    background-color: white;
+    border: 1px solid red;
+    color: red;
+}
+.cartDetails hr{
+    border: 1.5px solid rgb(192, 50, 50);
+    width: 100%;
+}
+.totalPrice{
+    margin-bottom: 2rem;
+}
+
+.totalPrice p {
+    margin-top:  0;
+    font-size: x-large;
+}
+.totalPrice button{
+    border: none;
+    width: 100%;
+    background-color: #E6E6FA;
+    border-radius: 5px;
+    padding: 1rem 2rem;
+    font-size: large;
+}
+.totalPrice button:hover{
+    background-color: #DAC2FF;
+}

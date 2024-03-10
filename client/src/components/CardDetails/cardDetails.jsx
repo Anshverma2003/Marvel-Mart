@@ -1,8 +1,9 @@
 import { cartContext } from "../../Context/context";
+import { Link } from 'react-router-dom'
 import useFetch from "../../Hooks/useFetch";
 import "./cardDetails.css";
 import pic1 from '../../Assets/return-eligibility-valid.webp'
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 function CardDetails() {
 
@@ -13,9 +14,26 @@ function CardDetails() {
     const { data, isPending, error } = useFetch('http://localhost:8000/Clothes/' + id);
 
     const { addToCart } = useContext(cartContext);
+    const [modal, setModal] = useState(false);
+
+
+    const [input, setInput] = useState({
+        "Size": "S",
+        "Quantity": "1"
+    });
+
+    function handleChange(e) {
+        const { name, value } = e.target;
+
+        setInput({
+            ...input,
+            [name]: value
+        })
+    }
 
     function handelAddToCart() {
-        addToCart(data);
+        addToCart(data , input.Size , input.Quantity);
+        setModal(true);
     }
 
 
@@ -29,7 +47,7 @@ function CardDetails() {
                     <hr />
                     <div className="details">
 
-                        <div className="leftDetail">
+                        <div className="leftDetail" >
                             <img src={data.img} alt="" />
                         </div>
 
@@ -48,7 +66,7 @@ function CardDetails() {
                             <h2>Rs. {data.price}.00 <del className="del">Rs. {data.prevPrice}</del> <span>{data.offPercent}</span> </h2>
                             <div className="selectSize">
                                 <span>CLICK TO SELECT SIZE:</span>
-                                <select name="Size" id="size">
+                                <select name="Size" id="size" onChange={handleChange}>
                                     <option value="S">S</option>
                                     <option value="M">M</option>
                                     <option value="L">L</option>
@@ -59,7 +77,7 @@ function CardDetails() {
                             </div>
                             <div className="quantity">
                                 <span>Quantity</span>
-                                <select name="Size" id="size">
+                                <select name="Quantity" id="size" onChange={handleChange}>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -73,9 +91,27 @@ function CardDetails() {
 
                             <button onClick={handelAddToCart} >ADD TO CART</button>
 
-
                         </div>
                     </div>
+                    {modal && (
+                        <div className="modal">
+                            <div className="modal-content">
+                                <div className="closeBtn"><button onClick={() => setModal(false)}>X</button></div>
+                                <h2>Item Added to Cart!</h2>
+                                <img src={data.img} alt="" />
+                                <p>Your item has been successfully added to the cart.</p>
+                                <div className="modalBtn">
+                                    <Link to="/cart">
+                                        <button className="viewBtn">VIEW CART</button>
+                                    </Link>
+                                    <Link to='/'>
+                                        <button className="shopBtn">CONTINUE SHOPPING</button>
+                                    </Link>
+                                </div>
+
+                            </div>
+                        </div>
+                    )}
                 </>
             )}
         </div>
