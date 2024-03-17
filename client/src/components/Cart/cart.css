@@ -32,6 +32,7 @@
 .cartDetails{
     display: flex;
     justify-content: center;
+    cursor: default;
 }
 .cart{
     display: flex;
@@ -94,6 +95,7 @@
 .totalPrice p {
     margin-top:  0;
     font-size: x-large;
+    cursor: default;
 }
 .totalPrice button{
     border: none;
@@ -102,6 +104,7 @@
     border-radius: 5px;
     padding: 1rem 2rem;
     font-size: large;
+    cursor: pointer;
 }
 .totalPrice button:hover{
     background-color: #DAC2FF;
