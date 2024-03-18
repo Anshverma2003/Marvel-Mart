@@ -9,51 +9,59 @@ const generateToken = (payload) => {
 
 
 export const signup = async (req, res) => {
-    const { firstname, lastname, email, password } = req.body;
 
-    const salt = await bcrypt.genSalt();
-    const hashPassword = await bcrypt.hash(password, salt);
-
-    const newUser = new UserModel(
-        firstname,
-        lastname,
-        email,
-        hashPassword
-    );
 
     try {
+        const { firstname, lastname, email, password } = req.body;
+        console.log(firstname, lastname, email, password);
+
 
         if (!email || !password || !firstname || !lastname) {
-            throw new Error("All field required");
+            console.log("hit1");
+            throw { status: 400, message: "All field required" };
+
+
         }
         if (!validator.isEmail(email)) {
-            throw new Error("Enter a valid email");
-        }
-        if (!validator.isStrongPassword(password)) {
-            throw new Error("Enter are strong password");
+            console.log("hit2");
+            throw { status: 400, message: "Enter a valid email" };
         }
 
-        let existingUser = await UserModel.checkExistingUser(email);
+
+        const existingUser = await UserModel.checkExistingUser(email);
 
         if (existingUser) {
-            throw new Error("Email already exists. Try logging in");
+            console.log("hit4");
+
+            throw { status: 400, message: "Email already exists. Try logging in" };
         }
 
         else {
+            console.log("hit");
+            const salt = await bcrypt.genSalt();
+            const hashPassword = await bcrypt.hash(password, salt);
+
+            const newUser = new UserModel(
+                firstname,
+                lastname,
+                email,
+                hashPassword
+            );
+
             const savedUser = await newUser.saveUser();
-            if (savedUser.success) {
+            if (!savedUser.success) {
+                throw {
+                    status: 400, message: "User not saved"
+                }
 
-                const token = generateToken(newUser.firstname);
-
-                res.status(201).json({ message: "User created successfully", token });
-            } else {
-                throw new Error("User not saved");
             }
+            const token = generateToken(newUser.firstname);
+
+            res.status(201).json({ message: "User created successfully", token });
         }
-
     } catch (error) {
-
-        res.status(500).json({ error: error.message });
+        console.log(error.message);
+        res.status(error.status).json({ error: error.message || error });
     }
 };
 

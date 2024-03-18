@@ -6,6 +6,7 @@ import CardDetails from "./components/CardDetails/cardDetails";
 import Cart from "./components/Cart/cart"
 import CartProvider from "./Context/context";
 import Buy from "./components/Buy/buy";
+import Signin from "./components/Signin/signIn";
 
 
 function App() {
@@ -31,6 +32,9 @@ function App() {
 
             <Route exact path='/Buy'>
               <Buy />
+            </Route>
+            <Route>
+              <Signin/>
             </Route>
 
             <Route component={PageNotFound} />

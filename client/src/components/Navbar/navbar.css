@@ -9,7 +9,7 @@ body{
     z-index: 10;
 }
 .left{
-    width: 65%;
+    width: 60%;
     display: flex;
     justify-content: space-between;
 }

@@ -1,0 +1,63 @@
+.signin {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('../../Assets/marvel-background-web.webp');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.signinContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.marvelsigninForm {
+    background-color: white;
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 40%;
+    height: auto;
+}
+
+.marvelsigninForm form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.marvelsigninForm input {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.signin > img{
+    width: 10rem;
+    margin-right: 1.5rem;
+}
+.marvelsigninForm > p{
+    margin-bottom: 0;
+    line-height: 1.8rem;
+    font-family: Noto Sans, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    color: #3c3c3e;
+    margin-bottom: 1rem;
+}
+input[type="submit"],select{
+    background-color: red;
+    text-transform: uppercase;
+    color: white;
+    cursor: pointer;
+}
