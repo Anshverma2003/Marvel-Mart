@@ -1,6 +1,6 @@
 import pic1 from '../../Assets/marvel-logo.png';
 import './signIn.css';
-import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 
 const Signin = () => {
@@ -11,29 +11,12 @@ const Signin = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
+    const navigate = useHistory();
+
     async function handleSubmit(e) {
 
         e.preventDefault();
 
-        // try {
-        //     const response = await axios.post('http://localhost:8080/signup', {
-        //         firstname,
-        //         lastname,
-        //         email,
-        //         password,
-        //     });
-        //     if (response.status !== 200)
-        //     {
-        //         setError(response.data.error);
-        //         console.log(error);
-        //         throw response.data.error;
-        //     }
-        //         const result = response.data.token;
-        //     console.log(result)
-        // }
-        // catch (err) {
-        //     console.log(err);
-        // }
         fetch('http://localhost:8080/signup', {
             method: 'POST',
             headers: {
@@ -50,9 +33,15 @@ const Signin = () => {
                 return res.json();
             })
             .then((data) => {
-                console.log(data);
+                if (data.error) {
+                    throw data.error;
+                }
+                localStorage.setItem("Token", data.token);
+                setError('');
+                navigate.push('/');
             })
             .catch((err) => {
+                setError(err);
                 console.log(err);
             })
     }
@@ -65,12 +54,15 @@ const Signin = () => {
                 <p>Marvel is part of The Walt Disney Family of Companies.
                     You'll be able to log into services and experiences using the same email and password.</p>
                 <form action="" onSubmit={handleSubmit} method='POST'>
-                    <input type="text" name="firstname" id="" placeholder='First Name' onChange={(e) => setFirstName(e.target.value)} />
-                    <input type="text" name="lastname" id="" placeholder='Last Name' onChange={(e) => setLastName(e.target.value)} />
-                    <input type="email" name="email" id="" placeholder='Email' onChange={(e) => setEmail(e.target.value)} />
-                    <input type="password" name="password" id="" placeholder='Password' onChange={(e) => setPassword(e.target.value)} />
-                    <input type="submit" name="create" id="" />
+                    <input type="text" name="firstname" id="1" placeholder='First Name' onChange={(e) => setFirstName(e.target.value)} />
+                    <input type="text" name="lastname" id="2" placeholder='Last Name' onChange={(e) => setLastName(e.target.value)} />
+                    <input type="email" name="email" id="3" placeholder='Email' onChange={(e) => setEmail(e.target.value)} />
+                    <input type="password" name="password" id="4" placeholder='Password' onChange={(e) => setPassword(e.target.value)} />
+                    <input type="submit" name="create" id="5" />
                 </form>
+                {error && <div className="error">
+                    <p>{error}</p>
+                </div>}
             </div>
         </div>
     )

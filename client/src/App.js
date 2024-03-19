@@ -7,6 +7,7 @@ import Cart from "./components/Cart/cart"
 import CartProvider from "./Context/context";
 import Buy from "./components/Buy/buy";
 import Signin from "./components/Signin/signIn";
+import Login from "./components/Login/login";
 
 
 function App() {
@@ -33,8 +34,13 @@ function App() {
             <Route exact path='/Buy'>
               <Buy />
             </Route>
-            <Route>
-              <Signin/>
+
+            <Route exact path="/signup">
+              <Signin />
+            </Route>
+            
+            <Route exact path="/login">
+              <Login />
             </Route>
 
             <Route component={PageNotFound} />
