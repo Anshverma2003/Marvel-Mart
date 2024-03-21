@@ -3,15 +3,32 @@ import { Link } from 'react-router-dom'
 import useFetch from "../../Hooks/useFetch";
 import "./cardDetails.css";
 import pic1 from '../../Assets/return-eligibility-valid.webp'
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import axios from "axios";
 
 function CardDetails() {
 
-    const currentURL = window.location.href;
-    const match = currentURL.match(/\/Clothes\/(\d+)/);
-    const id = match ? match[1] : null;
+    const [data, setData] = useState(null);
 
-    const { data, isPending, error } = useFetch('http://localhost:8000/Clothes/' + id);
+    useEffect(() => {
+        const fetchDataById = async () => {
+            try {
+                
+                const currentURL = window.location.href;
+                const match = currentURL.match(/\/productID\/(\d+)/);
+                const id = match ? match[1] : null;
+
+                const response = await axios.get(`http://localhost:8080/productID/${id}`);
+
+                setData(response.data.getProductById);
+                console.log(data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchDataById();
+    }, []);
 
     const { addToCart } = useContext(cartContext);
     const [modal, setModal] = useState(false);
@@ -32,15 +49,15 @@ function CardDetails() {
     }
 
     function handelAddToCart() {
-        addToCart(data , input.Size , input.Quantity);
+        addToCart(data, input.Size, input.Quantity);
         setModal(true);
     }
 
 
     return (
         <div className="cardDetails">
-            {isPending && <div>Loading....</div>}
-            {error && <div>{error}</div>}
+            {/* {isPending && <div>Loading....</div>}
+            {error && <div>{error}</div>} */}
             {data && (
                 <>
                     <h2>{data.name}</h2>

@@ -1,3 +1,5 @@
+
+
 import { Link } from "react-router-dom";
 import './ClothesList.css'
 
@@ -7,16 +9,16 @@ const ClothesList = ({ data }) => {
 
             {data.map(cloth => (
 
-                <div className="cloth-preview" key={cloth.id}>
+                <div className="cloth-preview" key={cloth.product_id}>
 
-                    <Link to={`/Clothes/${cloth.id}`}>
+                    <Link to={`/productID/${cloth.product_id}`}>
 
-                        <img src={cloth.img} alt="Image" />
-                        <p className="clothName">{cloth.img.slice(16, 38)}....</p>
+                        <img src={cloth.image} alt="Image" />
+                        <p className="clothName">{cloth.name}</p>
 
                         <span className="PriceTag">
-                            <p>Rs.{cloth.price} <del>{cloth.prevPrice}</del> </p>
-                            <p className="percent">{cloth.offPercent}</p>
+                            <p>Rs.{cloth.price} <del>{cloth.prevprice}</del> </p>
+                            <p className="percent">{cloth.offpercent}%off</p>
                         </span>
 
                     </Link>
