@@ -36,39 +36,39 @@ function CardDetails() {
     }, []);
 
     function handelAddToCart() {
-        // addToCart(data, input.Size, input.Quantity);
         setModal(true);
 
-        // try {
-        //     const price = data[0].price;
+        try {
+            const price = data[0].price;
+            const product_id = id;
             
-        //     fetch('http://localhost:8080/cart', {
-        //         method: 'POST',
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //             'Authorization': 'Bearer ${token}'
-        //         },
-        //         body: JSON.stringify({
-        //             id,
-        //             size,
-        //             quantity,
-        //             price
-        //         })
-        //     })
-        //     .then((res)=>{
-        //         if(res.ok){
-        //             return res.json()
-        //         }
-        //     })
-        //     .then((data)=>{
-        //         if(data){
-        //             console.log("Data Added To Cart");
-        //         }
-        //     })
+            fetch('http://localhost:8080/cart', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    product_id,
+                    size,
+                    quantity,
+                    price
+                })
+            })
+            .then((res)=>{
+                if(res.ok){
+                    return res.json()
+                }
+            })
+            .then((data)=>{
+                if(data){
+                    console.log("Data Added To Cart");
+                }
+            })
 
-        // } catch (error) {
-        //     console.log(error);
-        // }
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     return (
@@ -94,7 +94,7 @@ function CardDetails() {
                                 <p>This product is eligible for return under our easy 15 day return policy. No questions asked.</p>
                             </div>
 
-                            <h2>Rs. {data[0].price}.00 <del className="del">Rs. {data[0].prevprice}</del> <span>{data[0].offpercent}</span> </h2>
+                            <h2>Rs. {data[0].price}.00 <del className="del">Rs. {data[0].prevprice}</del> <span>{data[0].offpercent}% <span>OFF</span></span> </h2>
                             <div className="selectSize">
                                 <span>CLICK TO SELECT SIZE:</span>
                                 <select name="Size" id="size" onChange={(e) => { setSize(e.target.value) }}>

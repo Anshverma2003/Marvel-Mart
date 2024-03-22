@@ -3,12 +3,14 @@ import cartModal from "../Models/cart.js"
 export const cart = async (req, res) => {
 
     try {
-        req.user = user_id;
+
+        const user_id = req.user
+
         const { product_id, size, quantity, price } = req.body;
 
         const newCart = new cartModal({
 
-            user_id,
+            user_id: user_id,
             product_id,
             size,
             quantity,

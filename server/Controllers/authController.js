@@ -82,7 +82,7 @@ export const login = async (req, res) => {
             throw { status: 400, message: "Wrong Password" };
         }
 
-        const token = generateToken(user.email);
+        const token = generateToken(user.id);
 
         res.status(200).json({ message: "Login successful", token });
 
