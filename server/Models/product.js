@@ -24,8 +24,7 @@ class ProductModel {
                 return getItem.rows;
             }
             else{
-            console.log("hit3");
-
+          
                 throw{status:500 , message: "Could Not Fetch Data"}
             }
             

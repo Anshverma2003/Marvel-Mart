@@ -1,12 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { cartContext } from "../../Context/context";
 import pic1 from '../../Assets/return-eligibility-valid.webp';
 import './cardDetails.css';
 
 function CardDetails() {
     const [data, setData] = useState(null);
-    const { addToCart } = useContext(cartContext);
     const [modal, setModal] = useState(false);
     const [size, setSize] = useState('S');
     const [quantity, setQuantity] = useState(1);

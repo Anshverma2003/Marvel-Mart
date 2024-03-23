@@ -1,14 +1,46 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { cartContext } from '../../Context/context';
 import './cart.css'
 import pic1 from '../../Assets/wallpaperflare.com_wallpaper.jpg'
+import axios from 'axios';
 const Cart = () => {
 
 
     const { cart, removeFromCart } = useContext(cartContext);
+    const [newCart, setNewCart] = useState([]);
 
-    if (cart.length === 0) {
+    const token = localStorage.getItem('Token');
+
+    useEffect(() => {
+        try {
+            fetch('http://localhost:8080/cartItems', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+                .then((res) => {
+                    if (res.ok) {
+                        return res.json();
+                    }
+                    throw new Error("Error fetching data from the cart");
+                })
+                .then((data) => {
+                    console.log(data.response);
+
+                    setNewCart(data.response);
+                })
+        } catch (error) {
+            console.log(error);
+
+        }
+
+    }, []);
+
+
+    if (!newCart) {
         return <div className="emptyCart">
             <div className='emptyCartImage'>
                 <img src={pic1} alt="" />
@@ -23,10 +55,15 @@ const Cart = () => {
 
     function handleRemove(itemId) {
 
-        removeFromCart(itemId);
+        try {
+            
+        } catch (error) {
+            
+        }
     }
 
-    const totalPrice = cart.reduce((total, item) => total + parseInt(item.price), 0);
+    // const totalPrice = cart.reduce((total, item) => total + parseInt(item.price), 0);
+    let totalPrice = 0;
 
 
     return (
@@ -34,7 +71,7 @@ const Cart = () => {
             <div className="cart">
                 <h1>HERE'S WHAT'S IN YOUR CART</h1>
 
-                {cart.map(item => (
+                { newCart && newCart.map(item => (
                     <>
 
                         <div className="cartItems" key={item.id}>
@@ -43,12 +80,12 @@ const Cart = () => {
 
                             <div className="cartLeft">
 
-                                <img src={item.img} alt="Image" />
+                                <img src={item.image} alt="Image" />
                                 <div className="cartRight">
                                     <p>Style: Fullsleeves</p>
                                     <p>Size: {item.size}</p>
                                     <p>Quantity: {item.quantity} </p>
-                                    <p>Price: {item.price} <del>{item.prevPrice}</del></p>
+                                    <p>Price: {item.price}</p>
                                     <button onClick={() => handleRemove(item.id)}>REMOVE</button>
                                 </div>
                             </div>
@@ -59,7 +96,7 @@ const Cart = () => {
                 <hr />
                 <div className='totalPrice'>
                     <p>Total Price: {totalPrice}</p>
-                    <Link to ='/buy'>
+                    <Link to='/buy'>
                         <button>BUY</button>
                     </Link>
                 </div>
