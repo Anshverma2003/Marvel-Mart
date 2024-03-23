@@ -42,7 +42,6 @@ class cartModal {
     }
     static async deleteItem(product_id) {
         try {
-            console.log(product_id);
             const result = await db.query('DELETE FROM cart WHERE product_id = $1 ', [product_id]);
             if (!result) {
                 throw { status: 500, message: 'Can not remove item from the cart' };

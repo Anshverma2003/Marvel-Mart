@@ -50,6 +50,7 @@ export const deleteProduct = async (req, res) => {
 
     try {
         const { product_id } = req.body;
+        
         const response = await cartModal.deleteItem(product_id);
         if (response.success) {
             res.status(201).json({ message: 'Item removed from the cart' });

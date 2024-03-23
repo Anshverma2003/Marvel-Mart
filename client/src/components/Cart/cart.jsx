@@ -1,14 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { cartContext } from '../../Context/context';
-import './cart.css'
-import pic1 from '../../Assets/wallpaperflare.com_wallpaper.jpg'
-import axios from 'axios';
+import './cart.css';
+import pic1 from '../../Assets/wallpaperflare.com_wallpaper.jpg';
+
 const Cart = () => {
-
-
-    const { cart, removeFromCart } = useContext(cartContext);
     const [newCart, setNewCart] = useState([]);
+    const [totalPrice, setTotalPrice] = useState(0);
 
     const token = localStorage.getItem('Token');
 
@@ -21,77 +18,79 @@ const Cart = () => {
                     'Authorization': `Bearer ${token}`
                 }
             })
-                .then((res) => {
-                    if (res.ok) {
-                        return res.json();
-                    }
-                    throw new Error("Error fetching data from the cart");
-                })
-                .then((data) => {
-                    console.log(data.response);
-
+            .then((res) => {
+                if (res.ok) {
+                    return res.json();
+                }
+                throw new Error("Error fetching data from the cart");
+            })
+            .then((data) => {
+                console.log(data.response);
+                if (Array.isArray(data.response)) {
                     setNewCart(data.response);
-                })
+                    const totalPrice = data.response.reduce((total, item) => total + parseInt(item.price), 0);
+                    setTotalPrice(totalPrice);
+                }
+            });
         } catch (error) {
             console.log(error);
-
         }
-
     }, []);
 
-
-    if (!newCart) {
-        return <div className="emptyCart">
-            <div className='emptyCartImage'>
-                <img src={pic1} alt="" />
-            </div>
-            <h1> YOUR CART IS EMPTY</h1>
-            <Link to="/">
-                <button>CONTINUE SHOPPING</button>
-            </Link>
-        </div>;
-    }
-
-
-    function handleRemove(itemId) {
-
+    const handleRemove = (productId) => {
         try {
-            
+            fetch('http://localhost:8080/deleteProduct', {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    product_id: productId
+                })
+            })
+            .then((res) => {
+                if (!res.ok) {
+                    throw new Error("Can not remove item from cart");
+                }
+                setNewCart(prevCart => prevCart.filter(item => item.product_id !== productId));
+            });
         } catch (error) {
-            
+            console.log(error);
         }
+    };
+
+    if (!newCart || newCart.length === 0) {
+        return (
+            <div className="emptyCart">
+                <div className='emptyCartImage'>
+                    <img src={pic1} alt="" />
+                </div>
+                <h1> YOUR CART IS EMPTY</h1>
+                <Link to="/">
+                    <button>CONTINUE SHOPPING</button>
+                </Link>
+            </div>
+        );
     }
-
-    // const totalPrice = cart.reduce((total, item) => total + parseInt(item.price), 0);
-    let totalPrice = 0;
-
 
     return (
         <div className="cartDetails">
             <div className="cart">
                 <h1>HERE'S WHAT'S IN YOUR CART</h1>
-
-                { newCart && newCart.map(item => (
-                    <>
-
-                        <div className="cartItems" key={item.id}>
-                            <h2>{item.name}</h2>
-
-
-                            <div className="cartLeft">
-
-                                <img src={item.image} alt="Image" />
-                                <div className="cartRight">
-                                    <p>Style: Fullsleeves</p>
-                                    <p>Size: {item.size}</p>
-                                    <p>Quantity: {item.quantity} </p>
-                                    <p>Price: {item.price}</p>
-                                    <button onClick={() => handleRemove(item.id)}>REMOVE</button>
-                                </div>
+                {newCart.length > 0 && newCart.map(item => (
+                    <div className="cartItems" key={item.id}>
+                        <h2>{item.name}</h2>
+                        <div className="cartLeft">
+                            <img src={item.image} alt="Image" />
+                            <div className="cartRight">
+                                <p>Style: Fullsleeves</p>
+                                <p>Size: {item.size}</p>
+                                <p>Quantity: {item.quantity} </p>
+                                <p>Price: {item.price}</p>
+                                <button onClick={() => handleRemove(item.product_id)}>REMOVE</button>
                             </div>
-
                         </div>
-                    </>
+                    </div>
                 ))}
                 <hr />
                 <div className='totalPrice'>
@@ -100,13 +99,9 @@ const Cart = () => {
                         <button>BUY</button>
                     </Link>
                 </div>
-
             </div>
         </div>
-
-
-
-    )
-}
+    );
+};
 
 export default Cart;
