@@ -18,7 +18,7 @@ export const cart = async (req, res) => {
         });
 
         const result = await newCart.addToCart();
-        console.log(result);
+        // console.log(result);
         if (!result.success) {
             throw { status: 500, message: "Data Not Added In Cart !" };
         }
