@@ -25,3 +25,18 @@ export const address = async(req , res) => {
         res.status(error.status).json({error: error.message || error});
     }
 };
+
+export const getAddress = async (req , res)=>{
+    try {
+        const user_id = req.user;
+        const response = await buyModel.getAddress(user_id);
+        if(response){
+            res.status(200).json({message: 'data fetched ' , response});
+        }
+        else{
+            throw{status: 500 , message: 'can not show address'};
+        }
+    } catch (error) {
+        res.status(error.status).json({error: error.message || error});
+    }
+}

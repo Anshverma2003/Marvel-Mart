@@ -26,6 +26,21 @@ class buyModel {
             return error;
         }
     }
+
+    static async getAddress(user_id){
+        try {
+            const result = await db.query('SELECT * FROM address WHERE user_id = $1' ,[user_id]);
+
+            if(result.rows.length > 0){
+                return result.rows;
+            }
+            else{
+                throw{status: 500 , message: 'can not show address'};
+            }
+        } catch (error) {
+            return error;
+        }
+    }
 };
 
 export default buyModel;

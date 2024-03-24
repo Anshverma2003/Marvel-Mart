@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './buy.css';
 
 const Buy = () => {
@@ -12,6 +13,30 @@ const Buy = () => {
     const [pincode, setPincode] = useState('');
     const [mobile_no, setMobile_no] = useState('');
     const [addressData, setaddressData] = useState([]);
+
+
+    useEffect(() => {
+        fetch('http://localhost:8080/getAddress', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        })
+            .then((res) => {
+                if (res.ok) {
+                    return res.json();
+                }
+            })
+            .then((data) => {
+                if (Array.isArray(data.response)) {
+                    setaddressData(data.response);
+                }
+            })
+            .catch((error) => {
+                console.error('Error fetching address data:', error);
+            });
+    }, [showModal]);
 
     function handleClick() {
         setShowModal(true);
@@ -40,7 +65,6 @@ const Buy = () => {
                 throw new Error("Can not save address");
             })
             .then((data) => {
-                
                 setShowModal(false);
                 setShowAddress(true);
             })
@@ -50,7 +74,8 @@ const Buy = () => {
     }
 
     return (
-        <div className="buy">
+        token &&
+        (<div className="buy">
             <div className='addressModal'>
                 <div className="address">
                     <h4>ADDRESS DETAILS</h4>
@@ -61,9 +86,19 @@ const Buy = () => {
                 <div className='addressList'>
                     <div className='addressDetails'>
                         <button className='plus' onClick={handleClick}>➕</button>
+                        {addressData.map((addr, index) => (
+                            <Link to ='/payment'>
+                                <div key={index} className="addressItem">
+                                    <p> <strong>Address: </strong>{addr.address}</p>
+                                    <p> <strong>City:</strong> {addr.city}</p>
+                                    <p> <strong>State:</strong> {addr.state}</p>
+                                    <p><strong>Mobile No:</strong> {addr.mobile_no}</p>
+                                    <p> <strong>Postal Code:</strong> {addr.pincode}</p>
+                                </div>
+                            </Link>
+                        ))}
                     </div>
                 </div>
-
             </div>
 
             {showModal && (
@@ -90,7 +125,7 @@ const Buy = () => {
                     </div>
                 </div>
             )}
-        </div>
+        </div>)
     );
 };
 
