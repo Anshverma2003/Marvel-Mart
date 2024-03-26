@@ -19,27 +19,42 @@ class buyModel {
             if (!result.rows[0]) {
                 throw { status: 500, message: 'Server error: Could not add Address' };
             }
-            const saveAddress = result.rows[0]; 
-            return { success: true};
+            const saveAddress = result.rows[0];
+            return { success: true };
 
         } catch (error) {
             return error;
         }
     }
 
-    static async getAddress(user_id){
+    static async getAddress(user_id) {
         try {
-            const result = await db.query('SELECT * FROM address WHERE user_id = $1' ,[user_id]);
+            const result = await db.query('SELECT * FROM address WHERE user_id = $1', [user_id]);
 
-            if(result.rows.length > 0){
+            if (result.rows.length > 0) {
                 return result.rows;
             }
-            else{
-                throw{status: 500 , message: 'can not show address'};
+            else {
+                throw { status: 500, message: 'can not show address' };
             }
         } catch (error) {
             return error;
         }
+    }
+
+    static async removeaddress(user_id, pincode) {
+
+        try {
+            const result = await db.query('DELETE FROM address WHERE user_id = $1 AND pincode = $2', [user_id, pincode]);
+
+            if (!result) {
+                throw { status: 500, message: 'Can not remove address' };
+            }
+            return { success: true };
+        } catch (error) {
+            return error;
+        }
+
     }
 };
 

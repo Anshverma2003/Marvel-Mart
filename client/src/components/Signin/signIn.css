@@ -1,15 +1,17 @@
 .signin {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-image: url('../../Assets/marvel-background-web.webp');
-    background-size: cover;
+    background-size: 100% auto; 
+    background-position: center; 
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
     justify-content: center;
     align-items: center;
 }
+
 
 .signinContainer {
     position: absolute;
@@ -27,12 +29,15 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 40%;
     height: auto;
+    margin: 2rem 0;
+
 }
 
 .marvelsigninForm form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 0;
 }
 
 .marvelsigninForm input {
@@ -42,10 +47,6 @@
     border-radius: 5px;
     width: 100%;
     box-sizing: border-box;
-}
-.signin > img{
-    width: 10rem;
-    margin-right: 1.5rem;
 }
 .marvelsigninForm > p{
     margin-bottom: 0;

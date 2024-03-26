@@ -1,5 +1,4 @@
 import pic1 from '../../Assets/homeCoverImage.png'
-// import useFetch from '../../Hooks/useFetch';
 import ClothesList from '../ClothesList/ClothesList.jsx';
 import axios from 'axios';
 import './home.css'
@@ -13,7 +12,6 @@ const Home = () => {
         const fetchData = async () => {
             try {
                 const response = await axios.get('http://localhost:8080/product');
-                console.log(response.data.getAllProduct);
                 setdata(response.data.getAllProduct);
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -93,9 +91,6 @@ const Home = () => {
                         </div>
                     </div>
                     <div className='StoreCards'>
-                        {/* {error && <div>{error}</div>}
-
-                        {isPending && <div>Loading....</div>} */}
                         {data && <ClothesList data={data} />}
                     </div>
                 </div>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import pic1 from '../../Assets/delete.png'
 import './buy.css';
 
 const Buy = () => {
@@ -73,6 +74,30 @@ const Buy = () => {
             });
     }
 
+    function handleDelete(pincode) {
+        try {
+            fetch('http://localhost:8080/removeaddress', {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    pincode
+                })
+            })
+                .then((res) => {
+                    if (!res.ok) {
+                        throw new Error("Can not remove address");
+                    }
+                    setaddressData(prevAddress => prevAddress.filter(add => add.pincode !== pincode));
+                });
+        } catch (error) {
+            console.log(error);
+
+        }
+    }
+
     return (
         token &&
         (<div className="buy">
@@ -87,15 +112,17 @@ const Buy = () => {
                     <div className='addressDetails'>
                         <button className='plus' onClick={handleClick}>➕</button>
                         {addressData.map((addr, index) => (
-                            <Link to ='/payment'>
+                            <div>
                                 <div key={index} className="addressItem">
+                                    <button className='delete' onClick={()=>handleDelete(addr.pincode)}><img src={pic1} alt="" /></button>
                                     <p> <strong>Address: </strong>{addr.address}</p>
                                     <p> <strong>City:</strong> {addr.city}</p>
                                     <p> <strong>State:</strong> {addr.state}</p>
                                     <p><strong>Mobile No:</strong> {addr.mobile_no}</p>
                                     <p> <strong>Postal Code:</strong> {addr.pincode}</p>
+                                    <Link to='/payment' className="continue">CONTINUE</Link>
                                 </div>
-                            </Link>
+                            </div>
                         ))}
                     </div>
                 </div>

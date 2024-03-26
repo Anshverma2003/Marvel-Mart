@@ -92,7 +92,7 @@ function CardDetails() {
                                 <p>This product is eligible for return under our easy 15 day return policy. No questions asked.</p>
                             </div>
 
-                            <h2>Rs. {data[0].price}.00 <del className="del">Rs. {data[0].prevprice}</del> <span>{data[0].offpercent}% <span>OFF</span></span> </h2>
+                            <h2>Rs. {data[0].price} <del className="del">Rs. {data[0].prevprice}</del> <span>{data[0].offpercent}% <span>OFF</span></span> </h2>
                             <div className="selectSize">
                                 <span>CLICK TO SELECT SIZE:</span>
                                 <select name="Size" id="size" onChange={(e) => { setSize(e.target.value) }}>

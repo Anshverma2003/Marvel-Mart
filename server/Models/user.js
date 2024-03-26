@@ -26,18 +26,17 @@ class UserModel {
     async saveUser() {
 
         try {
-
-            const result = await db.query("INSERT INTO users(id , firstname , lastname , email , password) VALUES (DEFAULT , $1 , $2 , $3, $4)",
+            const result = await db.query("INSERT INTO users(id, firstname, lastname, email, password) VALUES (DEFAULT, $1, $2, $3, $4) RETURNING *",
                 [this.firstname, this.lastname, this.email, this.password]
             );
 
-            if (!result) {
+            if (result.rows.length > 0) {
+                const newSavedUser = result.rows[0];
+                return {success: true , newSavedUser};
+            } else {
                 throw new Error("User creation failed: Database query did not return a result");
             }
-            return { success: true };
-
         } catch (err) {
-
             throw err;
         }
 

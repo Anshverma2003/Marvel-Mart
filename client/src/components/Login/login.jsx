@@ -30,14 +30,14 @@ const Login = () => {
         })
         .then((data)=>{
             if(data.error){
-                throw data.error;
+                throw new Error(data.error) ;
             }
             localStorage.setItem("Token" , data.token);
             setError('');
             navigate.push('/');
         })
         .catch((err)=>{
-            setError(err);
+            setError(err.message);
         })
     }
 
@@ -50,13 +50,14 @@ const Login = () => {
                     The Walt Disney Family of Companies, you can now log into Marvel using <strong>Email</strong></p>
                 <form action="" onSubmit={handleSubmit} method='POST'>
 
-                    <input type="email" name="email" id="3" placeholder='Email' onChange={(e) => setEmail(e.target.value)} />
-                    <input type="password" name="password" id="4" placeholder='Password' onChange={(e) => setPassword(e.target.value)} />
+                    <input type="email" name="email" id="3" placeholder='Email' onChange={(e) => setEmail(e.target.value)} required autoComplete='off' />
+                    <input type="password" name="password" id="4" placeholder='Password' onChange={(e) => setPassword(e.target.value)} required autoComplete='off' />
                     <input type="submit" name="create" id="5" />
                 </form>
                 {error && <div className="error">
                     <p>{error}</p>
                 </div>}
+                <p>New to Marvel-Mart? <a href="/signup">Join</a></p>
             </div>
         </div>
     )

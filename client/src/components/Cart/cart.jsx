@@ -1,4 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './cart.css';
 import pic1 from '../../Assets/wallpaperflare.com_wallpaper.jpg';
@@ -7,9 +8,19 @@ const Cart = () => {
     const [newCart, setNewCart] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
 
+    const history = useHistory();
+
     const token = localStorage.getItem('Token');
 
     useEffect(() => {
+        if (!token) {
+            history.push('/login');
+        } else {
+            fetchCartItems();
+        }
+    }, [token, history]);
+
+    const fetchCartItems = () => {
         try {
             fetch('http://localhost:8080/cartItems', {
                 method: 'GET',
@@ -35,7 +46,7 @@ const Cart = () => {
         } catch (error) {
             console.log(error);
         }
-    }, []);
+    };
 
     const handleRemove = (productId) => {
         try {
@@ -58,6 +69,10 @@ const Cart = () => {
             console.log(error);
         }
     };
+
+    if (!token) {
+        return null;
+    }
 
     if (!newCart || newCart.length === 0) {
         return (
