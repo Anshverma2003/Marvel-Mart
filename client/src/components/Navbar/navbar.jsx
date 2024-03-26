@@ -13,16 +13,16 @@ const Navbar = () => {
         localStorage.removeItem("Token");
     }
 
-    useEffect(() => {
-        if (localStorage.getItem("Token")) {
-            setToken(localStorage.getItem("Token"));
-        }
-    }, [token]);
+    // useEffect(() => {
+    //     if (localStorage.getItem("Token")) {
+    //         setToken(localStorage.getItem("Token"));
+    //     }
+    // }, [token]);
 
     return (
         <nav className="navbar">
             <div className="left">
-                {!token && (
+                {!localStorage.getItem("Token") && (
                     <div className="LSbtn">
                         <Link to="login">LOG IN</Link>
                         <div className="vertical"></div>
@@ -30,7 +30,7 @@ const Navbar = () => {
                     </div>
                 )}
 
-                {token && (
+                {localStorage.getItem("Token") && (
                     <div className="LSbtn">
                         <Link to="/" onClick={handleLogOut}>
                             LOG OUT

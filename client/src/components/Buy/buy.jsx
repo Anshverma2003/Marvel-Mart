@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import pic1 from '../../Assets/delete.png'
+import { loadStripe } from '@stripe/stripe-js'
 import './buy.css';
 
 const Buy = () => {
@@ -98,6 +99,32 @@ const Buy = () => {
         }
     }
 
+    async function handlePayment() {
+        const stripe = await loadStripe("pk_test_51OyXxrSISD9Y6asSeOQhM1vANJJ48ZeNUlmo0BOddlDEJ5Q8Ftwdrf4m9CbfpJCd1Jn4hamhcWE8yHzk4DAyzF4s004ADbRGFC");
+        try {
+            fetch('http://localhost:8080/payment', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            .then((res)=>{
+                if(res.ok){
+                    return res.json();
+                }
+            })
+            .then((data)=>{
+                // console.log(data);
+                const sessionId = data.id;
+                console.log(sessionId);
+                stripe.redirectToCheckout({sessionId});
+            })
+        } catch (error) {
+
+        }
+    }
+
     return (
         token &&
         (<div className="buy">
@@ -114,13 +141,13 @@ const Buy = () => {
                         {addressData.map((addr, index) => (
                             <div>
                                 <div key={index} className="addressItem">
-                                    <button className='delete' onClick={()=>handleDelete(addr.pincode)}><img src={pic1} alt="" /></button>
+                                    <button className='delete' onClick={() => handleDelete(addr.pincode)}><img src={pic1} alt="" /></button>
                                     <p> <strong>Address: </strong>{addr.address}</p>
                                     <p> <strong>City:</strong> {addr.city}</p>
                                     <p> <strong>State:</strong> {addr.state}</p>
                                     <p><strong>Mobile No:</strong> {addr.mobile_no}</p>
                                     <p> <strong>Postal Code:</strong> {addr.pincode}</p>
-                                    <Link to='/payment' className="continue">CONTINUE</Link>
+                                    <button className="continue" onClick={handlePayment}>CONTINUE</button>
                                 </div>
                             </div>
                         ))}

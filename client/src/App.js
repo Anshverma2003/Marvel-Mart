@@ -15,35 +15,44 @@ function App() {
     <CartProvider>
       <Router>
         <div className="App">
-          <Navbar />
 
           <Switch>
 
             <Route exact path="/">
+              <Navbar />
               <Home />
             </Route>
 
             <Route exact path="/productID/:id">
+              <Navbar />
               <CardDetails />
             </Route>
 
             <Route exact path='/Cart'>
+              <Navbar />
               <Cart />
             </Route>
 
             <Route exact path='/Buy'>
+              <Navbar />
+
               <Buy />
             </Route>
 
             <Route exact path="/signup">
+              <Navbar />
               <Signin />
             </Route>
-            
+
             <Route exact path="/login">
+              <Navbar />
               <Login />
             </Route>
 
-            <Route component={PageNotFound} />
+            <Route>
+              <Navbar />
+              <PageNotFound />
+            </Route>
 
           </Switch>
 

@@ -1,4 +1,5 @@
 import db from "../db.js";
+import Stripe from "stripe";
 
 class buyModel {
 
@@ -56,6 +57,7 @@ class buyModel {
         }
 
     }
+
 };
 
 export default buyModel;
