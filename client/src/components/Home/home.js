@@ -25,7 +25,7 @@ const Home = () => {
                     })
                     .then((data)=>{
                         console.log(data);
-                        setdata(data)
+                        setdata(data.getAllProduct)
                     })
             }
             catch(error){
