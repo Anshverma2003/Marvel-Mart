@@ -11,7 +11,7 @@ const Home = () => {
         const fetchData = async () => {
 
             try {
-                fetch('https://marvel-mart-alxi.vercel.app/product',{
+                fetch('https://marvel-mart-gb8v.vercel.app/product',{
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json'

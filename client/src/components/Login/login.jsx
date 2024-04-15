@@ -15,7 +15,7 @@ const Login = () => {
     async function handleSubmit(e) {
         e.preventDefault();
 
-        fetch('https://marvel-mart-alxi.vercel.app/login', {
+        fetch('https://marvel-mart-gb8v.vercel.app/login', {
             method: 'POST',
             headers: {
                 'content-Type': 'application/json'
