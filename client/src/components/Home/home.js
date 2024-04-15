@@ -2,7 +2,7 @@ import pic1 from '../../Assets/homeCoverImage.png'
 import ClothesList from '../ClothesList/ClothesList.jsx';
 import axios from 'axios';
 import './home.css'
-import { useState , useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const Home = () => {
 
@@ -10,15 +10,31 @@ const Home = () => {
 
     useEffect(() => {
         const fetchData = async () => {
+
             try {
-                const response = await axios.get('https://marvel-mart-alxi.vercel.app/product');
-                setdata(response.data.getAllProduct);
-            } catch (error) {
-                console.error('Error fetching data:', error);
+                fetch('https://marvel-mart-alxi.vercel.app/product',{
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                    .then((res) => {
+                        if (res.ok) {
+                            return res.json();
+                        }
+                        throw new Error("Error fetching data from the cart");
+                    })
+                    .then((data)=>{
+                        console.log(data);
+                        setdata(data)
+                    })
+            }
+            catch(error){
+                console.log(error);
             }
         }
         fetchData();
-    },[])
+    }, [])
 
     return (
         <div className="home">
