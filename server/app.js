@@ -11,7 +11,8 @@ const app = express();
 
 app.use(cors({
     // Add the "Content-Type" header to CORS headers
-    exposedHeaders: ["Content-Type","authorization"],
+    origin: "https://marvel-mart-ten.vercel.app/",
+    credentials: true
     
 }));
 app.use(express.json());
