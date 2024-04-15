@@ -9,7 +9,11 @@ import cors from 'cors';
 const port = 8080;
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    // Add the "Content-Type" header to CORS headers
+    exposedHeaders: ["Content-Type","authorization"],
+    
+}));
 app.use(express.json());
 app.use(authRouter);
 app.use(productRouter);
