@@ -1,6 +1,5 @@
 import pic1 from '../../Assets/homeCoverImage.png'
 import ClothesList from '../ClothesList/ClothesList.jsx';
-import axios from 'axios';
 import './home.css'
 import { useState, useEffect } from 'react';
 
