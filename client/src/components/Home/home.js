@@ -11,7 +11,7 @@ const Home = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:8080/product');
+                const response = await axios.get('https://marvel-mart-alxi.vercel.app/product');
                 setdata(response.data.getAllProduct);
             } catch (error) {
                 console.error('Error fetching data:', error);

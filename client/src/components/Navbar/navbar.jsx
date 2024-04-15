@@ -12,13 +12,7 @@ const Navbar = () => {
         setToken('');
         localStorage.removeItem("Token");
     }
-
-    // useEffect(() => {
-    //     if (localStorage.getItem("Token")) {
-    //         setToken(localStorage.getItem("Token"));
-    //     }
-    // }, [token]);
-
+    
     return (
         <nav className="navbar">
             <div className="left">

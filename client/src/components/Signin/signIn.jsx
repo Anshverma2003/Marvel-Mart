@@ -17,7 +17,7 @@ const Signin = () => {
 
         e.preventDefault();
 
-        fetch('http://localhost:8080/signup', {
+        fetch('https://marvel-mart-alxi.vercel.app/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

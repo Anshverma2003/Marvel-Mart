@@ -17,7 +17,7 @@ function CardDetails() {
     useEffect(() => {
 
         if (id) {
-            fetch(`http://localhost:8080/productID/${id}`)
+            fetch(`https://marvel-mart-alxi.vercel.app/productID/${id}`)
                 .then((res) => {
                     if (res.ok) {
                         return res.json();
@@ -40,7 +40,7 @@ function CardDetails() {
             const price = data[0].price;
             const product_id = id;
             
-            fetch('http://localhost:8080/cart', {
+            fetch('https://marvel-mart-alxi.vercel.app/cart', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

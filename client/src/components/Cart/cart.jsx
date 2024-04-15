@@ -22,7 +22,7 @@ const Cart = () => {
 
     const fetchCartItems = () => {
         try {
-            fetch('http://localhost:8080/cartItems', {
+            fetch('https://marvel-mart-alxi.vercel.app/cartItems', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ const Cart = () => {
 
     const handleRemove = (productId) => {
         try {
-            fetch('http://localhost:8080/deleteProduct', {
+            fetch('https://marvel-mart-alxi.vercel.app/deleteProduct', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json'
