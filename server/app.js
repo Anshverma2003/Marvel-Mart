@@ -9,12 +9,9 @@ import cors from 'cors';
 const port = 8080;
 const app = express();
 
-app.use(cors({
-    // Add the "Content-Type" header to CORS headers
-    origin: "*",
-    credentials: true
-    
-}));
+app.use(cors());
+
+
 app.use(express.json());
 app.use(authRouter);
 app.use(productRouter);
