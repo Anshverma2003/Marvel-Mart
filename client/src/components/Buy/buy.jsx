@@ -18,7 +18,7 @@ const Buy = () => {
 
 
     useEffect(() => {
-        fetch('https://marvel-mart-alxi.vercel.app/getAddress', {
+        fetch('https://marvel-mart-gb8v.vercel.app/getAddress', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ const Buy = () => {
 
     function handleSubmit(event) {
         event.preventDefault();
-        fetch('https://marvel-mart-alxi.vercel.app/address', {
+        fetch('https://marvel-mart-gb8v.vercel.app/address', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -77,7 +77,7 @@ const Buy = () => {
 
     function handleDelete(pincode) {
         try {
-            fetch('https://marvel-mart-alxi.vercel.app/removeaddress', {
+            fetch('https://marvel-mart-gb8v.vercel.app/removeaddress', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -102,7 +102,7 @@ const Buy = () => {
     async function handlePayment() {
         const stripe = await loadStripe("pk_test_51OyXxrSISD9Y6asSeOQhM1vANJJ48ZeNUlmo0BOddlDEJ5Q8Ftwdrf4m9CbfpJCd1Jn4hamhcWE8yHzk4DAyzF4s004ADbRGFC");
         try {
-            fetch('https://marvel-mart-alxi.vercel.app/payment', {
+            fetch('https://marvel-mart-gb8v.vercel.app/payment', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

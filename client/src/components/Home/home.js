@@ -24,7 +24,6 @@ const Home = () => {
                         throw new Error("Error fetching data from the cart");
                     })
                     .then((data)=>{
-                        console.log(data);
                         setdata(data.getAllProduct)
                     })
             }
